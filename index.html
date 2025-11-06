@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skincare Routine Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <script defer src="app.js"></script>
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailInput = document.getElementById('email');
+      const maakBewerkbaar = () => {
+        emailInput.readOnly = false;
+        const val = emailInput.value;
+        emailInput.value = '';
+        emailInput.value = val;
+      };
+      
+      emailInput.addEventListener('focus', maakBewerkbaar, { once: true });
+      emailInput.addEventListener('mousedown', maakBewerkbaar, { once: true });
+      emailInput.addEventListener('touchstart', maakBewerkbaar, { once: true });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Mijn Skincare Routine</h1>
+    <form class="login" id="loginForm" autocomplete="off">
+      <input
+        id="email"
+        type="email"
+        name="loginEmail"
+        placeholder="jij@example.com"
+        autocomplete="off"
+        autocapitalize="none"
+        spellcheck="false"
+        readonly
+      />
+      <button id="loginBtn" type="button">Inloggen</button>
+      <span id="currentUser"></span>
+    </form>
+  </header>
+
+  <main>
+    <section class="form">
+      <h2>Nieuw product toevoegen</h2>
+      <input id="productName" placeholder="Naam product" />
+      <input id="productType" placeholder="Type (Cleanser, Serum...)" />
+      <input id="frequency" placeholder="Frequentie (Dagelijks, Wekelijks...)" />
+      <input id="stepOrder" type="number" placeholder="Stap volgorde (1, 2, 3...)" />
+      <button id="addProduct" type="button">Toevoegen aan routine</button>
+    </section>
+
+    <section class="list">
+      <h2>Mijn routine</h2>
+      <div id="routine"></div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,149 @@
+:root{
+  --bg: #0d0e10;
+  --panel:#181a1b;
+  --text:#f5f5f5;
+  --muted:#a3e635;
+  --accent:#84cc16;
+  --input-bg:#101112;
+  --input-border:#2a2a2a;
+  --input-text:#f5f5f5;
+  --btn-bg:#84cc16;
+  --btn-bg-hover:#a3e635;
+  --btn-text:#111;
+  --shadow: 0 4px 12px rgba(0,0,0,.3);
+  --radius:12px;
+  --radius-sm:8px;
+  --gap:25px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin:0;
+}
+
+header{
+  text-align:center;
+  padding:40px 16px 20px;
+}
+h1{ font-size:2em; margin:0 0 10px; }
+
+.login{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:nowrap;
+  margin:0 auto;
+  width:fit-content;
+}
+.login input{
+  width:240px;
+  max-width:60vw;
+}
+.login button{
+  white-space:nowrap;
+}
+#currentUser{
+  font-size:.95em;
+  color: var(--muted);
+  white-space:nowrap;
+}
+
+@media (max-width:420px){
+  .login{ flex-wrap:wrap; }
+  #currentUser{ margin-left:0; }
+}
+
+main{
+  width:100%;
+  max-width:700px;
+  margin:0 auto 60px;
+  padding:0 16px;
+  display:grid;
+  gap:var(--gap);
+}
+
+main::after{
+  content:"";
+  display:block;
+  height:40px;
+}
+
+section{
+  background: var(--panel);
+  padding:25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width:100%;
+}
+h2{ text-align:center; margin:0 0 20px; }
+
+input, select, textarea, button{
+  font:inherit;
+  border-radius: var(--radius-sm);
+}
+
+input, select, textarea{
+  width:100%;
+  padding:12px 14px;
+  background: var(--input-bg);
+  color: var(--input-text);
+  border:1px solid var(--input-border);
+  outline:0;
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(132,204,22,.35);
+}
+
+.form input, .form select, .form textarea{
+  margin-bottom:10px;
+}
+
+button{
+  padding:12px 16px;
+  border:none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-weight:700;
+  cursor:pointer;
+  transition: background .2s ease;
+}
+button:hover{ background: var(--btn-bg-hover); }
+
+section.form #addProduct {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+#routine .item{
+  background: var(--input-bg);
+  border:1px solid var(--input-border);
+  padding:12px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom:10px;
+  font-size:1rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+  -webkit-text-fill-color: var(--input-text) !important;
+  border:1px solid var(--input-border) !important;
+}
+
+input:-moz-autofill{
+  box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+  color: var(--input-text) !important;
+}
